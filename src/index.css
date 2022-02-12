@@ -15,3 +15,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.loading-text {
+  width: 15ch;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 1px solid black;
+  animation: flash 1s step-end infinite, loading-text .3s steps(16);
+}
+
+@keyframes flash {
+  0% { border-color: black; }
+  50% { border-color: transparent; }
+  100% { border-color: black; }
+}
+
+@keyframes loading-text {
+  from { width: 0; }
+}

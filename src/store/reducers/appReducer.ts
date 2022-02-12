@@ -1,7 +1,7 @@
 import { AppAction, AppActionTypes, AppState } from "../types/app";
 
 const initialState: AppState = {
-    loading: false,
+    loading: true,
     user: null,
 }
 

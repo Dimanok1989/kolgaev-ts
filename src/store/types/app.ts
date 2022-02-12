@@ -1,6 +1,15 @@
 export interface AppState {
     loading: boolean;
-    user: null | object;
+    user: null | UserTypes;
+}
+
+export interface UserTypes {
+    created_at: string;
+    email: string;
+    email_verified_at: null | string;
+    id: number;
+    name: string;
+    updated_at: string;
 }
 
 export enum AppActionTypes {
