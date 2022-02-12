@@ -1,7 +1,7 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const MainPage: React.FC = props => {
+const MainPage: React.FC = () => {
 
     return <div className="w-screen h-screen relative">
 
@@ -15,8 +15,6 @@ const MainPage: React.FC = props => {
                         <img src="/logo192.jpg" alt="kolgaev.ru" className="w-20 h-20 rounded mr-4 shadow-lg shadow-white/20" />
                         <h1 className="text-7xl font-mono m-0">kolgaev.ru</h1>
                     </div>
-
-                    {/* <div>Развивающийся портал для своих</div> */}
 
                 </div>
 
