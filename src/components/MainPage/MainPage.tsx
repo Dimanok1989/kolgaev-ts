@@ -13,7 +13,7 @@ const MainPage: React.FC = () => {
 
                     <div className="flex justify-center items-center mb-3">
                         <img src="/logo192.jpg" alt="kolgaev.ru" className="w-20 h-20 rounded mr-4 shadow-lg shadow-white/20" />
-                        <h1 className="text-7xl font-mono m-0">kolgaev.ru</h1>
+                        <h1 className="text-7xl text-white font-mono m-0">kolgaev.ru</h1>
                     </div>
 
                 </div>
@@ -23,20 +23,20 @@ const MainPage: React.FC = () => {
         </div>
 
         <div className="absolute flex justify-center items-center w-full bottom-0 pt-5 pb-2 bg-gradient-to-t from-zinc-900 text-white">
-            <a className="opacity-60 hover:opacity-100 cursor-pointer mx-1" href="https://github.com/Dimanok1989" target="_blank">
+            <a className="opacity-60 hover:opacity-100 hover:text-white cursor-pointer mx-1" href="https://github.com/Dimanok1989" target="_blank">
                 <FontAwesomeIcon icon={['fab', 'github']} size="2x" />
             </a>
-            <a className="opacity-60 hover:opacity-100 cursor-pointer mx-1" href="https://gitlab.com/Dimanok1989" target="_blank">
-                <FontAwesomeIcon icon={['fab', 'gitlab']} size="2x" className="opacity-60 hover:opacity-100 cursor-pointer mx-1" />
+            <a className="opacity-60 hover:opacity-100 hover:text-white cursor-pointer mx-1" href="https://gitlab.com/Dimanok1989" target="_blank">
+                <FontAwesomeIcon icon={['fab', 'gitlab']} size="2x" />
             </a>
-            <a className="opacity-60 hover:opacity-100 cursor-pointer mx-1" href="https://www.instagram.com/dimanok1989" target="_blank">
-                <FontAwesomeIcon icon={['fab', 'instagram']} size="2x" className="opacity-60 hover:opacity-100 cursor-pointer mx-1" />
+            <a className="opacity-60 hover:opacity-100 hover:text-white cursor-pointer mx-1" href="https://www.instagram.com/dimanok1989" target="_blank">
+                <FontAwesomeIcon icon={['fab', 'instagram']} size="2x" />
             </a>
-            <a className="opacity-60 hover:opacity-100 cursor-pointer mx-1" href="https://vk.com/kolgaev89" target="_blank">
-                <FontAwesomeIcon icon={['fab', 'vk']} size="2x" className="opacity-60 hover:opacity-100 cursor-pointer mx-1" />
+            <a className="opacity-60 hover:opacity-100 hover:text-white cursor-pointer mx-1" href="https://vk.com/kolgaev89" target="_blank">
+                <FontAwesomeIcon icon={['fab', 'vk']} size="2x" />
             </a>
-            <a className="opacity-60 hover:opacity-100 cursor-pointer mx-1" href="https://www.youtube.com/channel/UCAiealqjaAckQ4KJ22dO1GQ?view_as=subscriber" target="_blank">
-                <FontAwesomeIcon icon={['fab', 'youtube']} size="2x" className="opacity-60 hover:opacity-100 cursor-pointer mx-1" />
+            <a className="opacity-60 hover:opacity-100 hover:text-white cursor-pointer mx-1" href="https://www.youtube.com/channel/UCAiealqjaAckQ4KJ22dO1GQ?view_as=subscriber" target="_blank">
+                <FontAwesomeIcon icon={['fab', 'youtube']} size="2x" />
             </a>
         </div>
 
