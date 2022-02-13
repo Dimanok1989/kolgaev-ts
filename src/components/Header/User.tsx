@@ -1,7 +1,8 @@
 import React from "react";
 import { UserTypes } from "../../store/types/app";
+import { useActions } from "../../hooks/useActions";
 import { Avatar, Menu, Dropdown } from 'antd';
-import { UserOutlined, SettingOutlined } from '@ant-design/icons';
+import { UserOutlined, SettingOutlined, LoadingOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface UserPropsTypes {
@@ -11,22 +12,39 @@ interface UserPropsTypes {
 const User: React.FC<UserPropsTypes> = props => {
 
     const { user }: UserPropsTypes = props;
+    const { fetchAppUserLogout } = useActions();
+    const [logout, setLogout] = React.useState<boolean>(false);
+
+    React.useEffect(() => {
+
+        if (logout) {
+            fetchAppUserLogout(null, null, () => setLogout(false));
+        }
+
+    }, [logout]);
 
     const menu = (
         <Menu>
             <Menu.Item key="0" disabled icon={<UserOutlined />}>Мои данные</Menu.Item>
             <Menu.Item key="1" disabled icon={<SettingOutlined />}>Настройки</Menu.Item>
             <Menu.Divider />
-            <Menu.Item key="3" icon={<FontAwesomeIcon icon={["fas", "arrow-right-from-bracket"]} />}>Выход</Menu.Item>
+            <Menu.Item key="3" icon={<FontAwesomeIcon icon={["fas", "arrow-right-from-bracket"]} />} onClick={() => setLogout(true)}>Выход</Menu.Item>
         </Menu>
     );
 
     return <div>
         <div title={user.name}>
-            <Dropdown overlay={menu} trigger={['click']} placement="bottomRight" className="cursor-pointer opacity-80 hover:opacity-100" arrow>
+            <Dropdown
+                overlay={menu}
+                trigger={['click']}
+                placement="bottomRight"
+                className={logout ? "opacity-80" : "cursor-pointer opacity-80 hover:opacity-100"}
+                arrow
+                disabled={logout}
+            >
                 <Avatar
                     className="flex justify-center items-center bg-cyan-900"
-                    icon={<UserOutlined />}
+                    icon={logout ? <LoadingOutlined /> : <UserOutlined />}
                 />
             </Dropdown>
         </div>

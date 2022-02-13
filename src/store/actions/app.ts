@@ -3,6 +3,7 @@ import { AppAction, AppActionTypes } from "../types/app";
 import { Dispatch } from "redux";
 
 export const fetchApp = () => {
+
     return async (dispatch: Dispatch<AppAction>) => {
 
         dispatch({ type: AppActionTypes.FETCH_APP_START });
@@ -20,5 +21,24 @@ export const fetchApp = () => {
                 payload: null,
             });
         }
+    }
+}
+
+export const fetchAppUserLogout = (success: any = null, error: any = null, done: any = null) => {
+
+    return async (dispatch: Dispatch<AppAction>) => {
+
+        try {
+            await axios.post('user/logouts');
+            dispatch({ type: AppActionTypes.FETCH_APP_USER_LOGOUT });
+        } catch (e: any) {
+            dispatch({
+                type: AppActionTypes.FETCH_CATCH,
+                payload: { data: e, callbak: error },
+            });
+        }
+
+        if (typeof done == "function")
+            done();
     }
 }
