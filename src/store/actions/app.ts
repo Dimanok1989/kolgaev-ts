@@ -24,6 +24,29 @@ export const fetchApp = () => {
     }
 }
 
+export const fetchAppUserLogin = (data: object, success: any = null, error: any = null, done: any = null) => {
+
+    return async (dispatch: Dispatch<AppAction>) => {
+
+        try {
+            const response = await axios.post('user/login', data);
+            dispatch({ type: AppActionTypes.FETCH_APP_USER_LOGIN, payload: response.data });
+
+            if (typeof success == "function")
+                success(response.data);
+
+        } catch (e: any) {
+            dispatch({
+                type: AppActionTypes.FETCH_CATCH,
+                payload: { data: e, callback: error },
+            });
+        }
+
+        if (typeof done == "function")
+            done();
+    }
+}
+
 export const fetchAppUserLogout = (success: any = null, error: any = null, done: any = null) => {
 
     return async (dispatch: Dispatch<AppAction>) => {

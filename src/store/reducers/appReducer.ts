@@ -13,6 +13,11 @@ const Notification = (data: any) => {
     noty("error", { message: message });
 }
 
+const ErrorMessage = (data: any) => {
+    const { message } = useError(data);
+    return message;
+}
+
 export const appReducer = (state = initialState, action: AppAction): AppState => {
 
     switch (action.type) {
@@ -20,7 +25,7 @@ export const appReducer = (state = initialState, action: AppAction): AppState =>
         case AppActionTypes.FETCH_CATCH:
 
             if (typeof action.payload.callback == "function") {
-                action.payload.callback(action.payload.data);
+                action.payload.callback(action.payload.data, ErrorMessage(action.payload.data));
             } else {
                 Notification(action.payload.data);
             }
@@ -31,6 +36,10 @@ export const appReducer = (state = initialState, action: AppAction): AppState =>
             return { ...state, loading: true, user: null }
 
         case AppActionTypes.FETCH_APP_START_SUCCESS:
+            return { ...state, loading: false, ...(action.payload ? action.payload : {}) }
+
+        case AppActionTypes.FETCH_APP_USER_LOGIN:
+            localStorage.setItem('k_access_token', action.payload?.token || null);
             return { ...state, loading: false, ...(action.payload ? action.payload : {}) }
 
         case AppActionTypes.FETCH_APP_USER_LOGOUT:

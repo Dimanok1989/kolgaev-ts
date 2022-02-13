@@ -1,5 +1,6 @@
 export interface AppState {
     loading: boolean;
+    token?: string;
     user: null | UserTypes;
 }
 
@@ -16,6 +17,7 @@ export enum AppActionTypes {
     FETCH_CATCH = 'FETCH_CATCH',
     FETCH_APP_START = 'FETCH_APP_START',
     FETCH_APP_START_SUCCESS = 'FETCH_APP_START_SUCCESS',
+    FETCH_APP_USER_LOGIN = 'FETCH_APP_USER_LOGIN',
     FETCH_APP_USER_LOGOUT = 'FETCH_APP_USER_LOGOUT',
 }
 
@@ -33,6 +35,11 @@ interface FetchAppActionSuccess {
     payload: null | object;
 }
 
+interface FetchAppUserLoginAction {
+    type: AppActionTypes.FETCH_APP_USER_LOGIN;
+    payload: any;
+}
+
 interface FetchAppUserLogoutAction {
     type: AppActionTypes.FETCH_APP_USER_LOGOUT;
 }
@@ -40,4 +47,5 @@ interface FetchAppUserLogoutAction {
 export type AppAction = FetchCatch
     | FetchAppAction
     | FetchAppActionSuccess
+    | FetchAppUserLoginAction
     | FetchAppUserLogoutAction
