@@ -6,7 +6,7 @@ import { UserOutlined, SettingOutlined, LoadingOutlined } from '@ant-design/icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface UserPropsTypes {
-    user: UserTypes;
+    user: null | UserTypes;
 }
 
 const User: React.FC<UserPropsTypes> = props => {
@@ -23,7 +23,7 @@ const User: React.FC<UserPropsTypes> = props => {
 
     }, [logout]);
 
-    const menu = (
+    const userMenu = (
         <Menu>
             <Menu.Item key="0" disabled icon={<UserOutlined />}>Мои данные</Menu.Item>
             <Menu.Item key="1" disabled icon={<SettingOutlined />}>Настройки</Menu.Item>
@@ -32,10 +32,21 @@ const User: React.FC<UserPropsTypes> = props => {
         </Menu>
     );
 
+    if (user === null) {
+        return <div>
+            <FontAwesomeIcon
+                icon={['fas', 'arrow-right-to-bracket']}
+                size="lg"
+                className="opacity-60 hover:opacity-100 cursor-pointer"
+                title="Авторизация"
+            />
+        </div>
+    }
+
     return <div>
         <div title={user.name}>
             <Dropdown
-                overlay={menu}
+                overlay={userMenu}
                 trigger={['click']}
                 placement="bottomRight"
                 className={logout ? "opacity-80" : "cursor-pointer opacity-80 hover:opacity-100"}

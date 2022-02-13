@@ -29,7 +29,7 @@ export const fetchAppUserLogout = (success: any = null, error: any = null, done:
     return async (dispatch: Dispatch<AppAction>) => {
 
         try {
-            await axios.post('user/logouts');
+            await axios.post('user/logout');
             dispatch({ type: AppActionTypes.FETCH_APP_USER_LOGOUT });
         } catch (e: any) {
             dispatch({

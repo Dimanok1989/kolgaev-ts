@@ -13,7 +13,7 @@ const Header: React.FC = () => {
             
             <div className="relative"></div>
             <div className="relative">
-                {user && <User user={user} />}
+                <User user={user} />
             </div>
 
         </div>
