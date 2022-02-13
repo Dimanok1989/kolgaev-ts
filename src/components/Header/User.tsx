@@ -4,6 +4,7 @@ import { useActions } from "../../hooks/useActions";
 import { Avatar, Menu, Dropdown } from 'antd';
 import { UserOutlined, SettingOutlined, LoadingOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 interface UserPropsTypes {
     user: null | UserTypes;
@@ -34,12 +35,13 @@ const User: React.FC<UserPropsTypes> = props => {
 
     if (user === null) {
         return <div>
-            <FontAwesomeIcon
-                icon={['fas', 'arrow-right-to-bracket']}
-                size="lg"
-                className="opacity-60 hover:opacity-100 cursor-pointer"
-                title="Авторизация"
-            />
+            <Link to="/login" className="opacity-60 text-white hover:opacity-100 hover:text-white">
+                <FontAwesomeIcon
+                    icon={['fas', 'arrow-right-to-bracket']}
+                    size="lg"
+                    title="Авторизация"
+                />
+            </Link>
         </div>
     }
 

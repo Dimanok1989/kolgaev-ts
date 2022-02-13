@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import { useActions } from "../hooks/useActions";
-import Header from "./Header";
-import MainPage from "./MainPage";
 import { AppState } from "../store/types/app";
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { fas } from "@fortawesome/free-solid-svg-icons"
 import { far } from "@fortawesome/free-regular-svg-icons"
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import { BrowserRouter } from "react-router-dom";
 import AppLoading from "./AppLoading";
+import Header from "./Header";
+import Router from "./Router";
 
 library.add(fas, far, fab);
 
@@ -26,13 +27,13 @@ const App: React.FC = () => {
         return <AppLoading />
     }
 
-    return <>
+    return <BrowserRouter>
 
         <Header />
 
-        <MainPage />
-    
-    </>
+        <Router />
+
+    </BrowserRouter>
 
 }
 
