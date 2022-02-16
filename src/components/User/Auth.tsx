@@ -3,10 +3,12 @@ import { useActions } from "../../hooks/useActions";
 import { Spin, Form, Input, Button, Checkbox, Typography } from "antd";
 import { LoadingOutlined } from '@ant-design/icons';
 import { useNavigate } from "react-router";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 
-const Auth = (props: any) => {
+const Auth = () => {
 
     const { fetchAppUserLogin } = useActions();
+    const user = useTypedSelector(state => state.app.user);
     const navigate = useNavigate();
 
     const [form] = Form.useForm();
@@ -39,6 +41,10 @@ const Auth = (props: any) => {
     //     console.log('Failed:', errorInfo);
     // };
 
+    React.useEffect(() => {
+        if (user) return navigate("/");
+    }, []);
+
     return <div className="flex justify-center items-center h-screen">
 
         <Spin spinning={loading} indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}>
@@ -47,7 +53,7 @@ const Auth = (props: any) => {
                 form={form}
                 name="auth"
                 labelCol={{ span: 8 }}
-                // wrapperCol={{ span: 16 }}
+                wrapperCol={{ span: 16 }}
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
                 // onFinishFailed={onFinishFailed}

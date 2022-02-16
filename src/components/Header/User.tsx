@@ -1,8 +1,8 @@
 import React from "react";
 import { UserTypes } from "../../store/types/app";
 import { useActions } from "../../hooks/useActions";
-import { Avatar, Menu, Dropdown } from 'antd';
-import { UserOutlined, SettingOutlined, LoadingOutlined } from '@ant-design/icons';
+import { Avatar, Menu, Dropdown } from "antd";
+import { UserOutlined, SettingOutlined, LoadingOutlined } from "@ant-design/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
