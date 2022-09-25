@@ -30,8 +30,6 @@ const Auth = () => {
                     { name: "email", validating: false, errors: [""] },
                     { name: "password", validating: false, errors: [""] },
                 ]);
-            },
-            () => {
                 setLoading(false);
             }
         );

@@ -1,5 +1,7 @@
+import { UserTypes } from "./app";
+
 export interface UserState {
-    user: null | object;
+    user: null | UserTypes;
     users: any[];
     loading: boolean;
     error: null | string;
@@ -14,7 +16,7 @@ export enum UserActionTypes {
 
 interface FetchUserAction {
     type: UserActionTypes.FETCH_USER;
-    payload: null | object;
+    payload: null | UserTypes;
 }
 
 interface FetchUsersAction {

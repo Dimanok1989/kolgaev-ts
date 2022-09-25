@@ -11,6 +11,7 @@ export interface UserTypes {
     id: number;
     name: string;
     updated_at: string;
+    access: any;
 }
 
 export enum AppActionTypes {
